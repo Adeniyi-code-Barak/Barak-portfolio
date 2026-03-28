@@ -25,6 +25,8 @@ import {
   MessageSquare
 } from 'lucide-react';
 
+import HybridImage from './Hybrid.png';
+
 // --- Configuration & Image Management ---
 /**
  * HOW TO CHANGE IMAGES:
@@ -34,7 +36,7 @@ import {
  *    - Reference them using a leading slash, e.g., profileImage: "/my-photo.jpg"
  */
 const CONFIG = {
-  profileImage: "/Hybrid.png", // Replace with your professional/cyborg photo
+  profileImage: HybridImage, // Using imported image for better deployment reliability
   workspaceImage: "https://picsum.photos/seed/workspace/800/1000",
   projectImages: {
     eval: "https://picsum.photos/seed/ai-eval/800/600",
@@ -208,7 +210,6 @@ const Hero = () => {
                   src={CONFIG.profileImage} 
                   alt="Moshood Ogundiran" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
