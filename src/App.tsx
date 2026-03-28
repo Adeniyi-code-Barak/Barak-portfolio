@@ -54,7 +54,7 @@ const CONFIG = {
     "https://picsum.photos/seed/person1/100/100",
     "https://picsum.photos/seed/person2/100/100",
   ],
-  contactThumbnail: "https://picsum.photos/seed/moshood-small/100/100",
+  contactThumbnail: ProfileImage,
 };
 
 // --- Components ---
@@ -708,7 +708,7 @@ const Contact = () => {
             </div>
 
             <div className="mt-12 flex items-center gap-4 p-6 glass rounded-3xl max-w-sm">
-              <img src={CONFIG.contactThumbnail} alt="Moshood" className="w-16 h-16 rounded-2xl object-cover" referrerPolicy="no-referrer" />
+              <img src={CONFIG.contactThumbnail} alt="Moshood" className="w-16 h-16 rounded-2xl object-cover" />
               <div>
                 <h4 className="font-bold">Moshood Ogundiran</h4>
                 <p className="text-xs text-white/40">Ready to collaborate</p>
