@@ -25,18 +25,19 @@ import {
   MessageSquare
 } from 'lucide-react';
 
-import HybridImage from './Hybrid.png';
+import ProfileImage from './assets/images/profile.png';
 
 // --- Configuration & Image Management ---
 /**
  * HOW TO CHANGE IMAGES:
  * 1. To use a URL: Replace the strings in the CONFIG object below with your image URLs.
  * 2. To use your own files: 
- *    - Upload your images to the 'public' folder (create it if it doesn't exist).
- *    - Reference them using a leading slash, e.g., profileImage: "/my-photo.jpg"
+ *    - Upload your images to the 'src/assets/images' folder.
+ *    - Import them at the top of this file: import MyImage from './assets/images/my-photo.jpg';
+ *    - Reference them in the CONFIG object: profileImage: MyImage
  */
 const CONFIG = {
-  profileImage: HybridImage, // Using imported image for better deployment reliability
+  profileImage: ProfileImage, // Using imported image for better deployment reliability
   workspaceImage: "https://picsum.photos/seed/workspace/800/1000",
   projectImages: {
     eval: "https://picsum.photos/seed/ai-eval/800/600",
@@ -209,7 +210,7 @@ const Hero = () => {
                 <img 
                   src={CONFIG.profileImage} 
                   alt="Moshood Ogundiran" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
