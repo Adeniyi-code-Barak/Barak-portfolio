@@ -22,7 +22,8 @@ import {
   Quote,
   Calendar,
   User,
-  MessageSquare
+  MessageSquare,
+  MessageCircle
 } from 'lucide-react';
 
 import ProfileImage from './assets/images/profile.png';
@@ -40,9 +41,9 @@ const CONFIG = {
   profileImage: ProfileImage, // Using imported image for better deployment reliability
   workspaceImage: "https://picsum.photos/seed/workspace/800/1000",
   projectImages: {
-    eval: "https://picsum.photos/seed/ai-eval/800/600",
-    bletofu: "https://picsum.photos/seed/bletofu/800/600",
-    smb: "https://picsum.photos/seed/smb/800/600",
+    eval: "https://picsum.photos/seed/ai-evaluation-dashboard/800/600",
+    bletofu: "https://picsum.photos/seed/educational-platform/800/600",
+    smb: "https://picsum.photos/seed/business-automation/800/600",
   },
   caseStudyImage: "https://picsum.photos/seed/case1/1200/800",
   blogImages: [
@@ -181,7 +182,7 @@ const Hero = () => {
             AI Evaluator | Generative AI Quality Specialist | Digital Product Builder
           </p>
           <p className="text-base md:text-lg text-white/40 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed">
-            Helping organizations build reliable AI systems and scalable digital products through rigorous evaluation and strategic product marketing.
+            Helping organizations build reliable AI systems and scalable digital products through rigorous evaluation and strategic AI implementation.
           </p>
           <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <a href="#work" className="px-6 md:px-8 py-3 md:py-4 bg-primary text-white rounded-xl font-bold hover:shadow-[0_0_30px_rgba(108,59,255,0.4)] transition-all flex items-center gap-2 group text-sm md:text-base">
@@ -278,7 +279,7 @@ const About = () => {
             I am Moshood Ogundiran, a multi-disciplinary professional dedicated to the advancement of Generative AI systems. My work focuses on ensuring AI outputs meet the highest standards of quality, safety, and utility.
           </p>
           <p className="text-base md:text-lg text-white/60 mb-12 leading-relaxed">
-            With a background in product marketing and digital product development, I bring a unique strategic lens to every project, helping startups and established teams navigate the complex landscape of modern technology.
+            With a background in AI evaluation and digital product development, I bring a unique strategic lens to every project, helping startups and established teams navigate the complex landscape of modern technology.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -323,19 +324,19 @@ const Projects = () => {
   const projects = [
     {
       title: "AI Output Evaluation Framework",
-      desc: "A comprehensive methodology for benchmarking LLM performance across various domains including reasoning and safety.",
+      desc: "Architected and deployed a sophisticated, multi-dimensional evaluation system for Large Language Models (LLMs). This framework integrates automated scoring metrics (like BLEU, ROUGE, and BERTScore) with custom human-in-the-loop (HITL) review pipelines to rigorously benchmark model performance. It focuses on critical dimensions such as logical consistency, factual grounding, and safety alignment, providing actionable insights that have directly led to a measurable reduction in model hallucinations and improved reliability for production-grade AI applications.",
       tech: ["Python", "OpenAI API", "Data Analysis"],
       image: CONFIG.projectImages.eval
     },
     {
       title: "BLETOFU Learning Platform",
-      desc: "An innovative digital learning environment designed to personalize the educational journey using AI-driven insights.",
+      desc: "Designed and built an AI-native educational ecosystem that transforms the traditional learning experience through deep personalization. By utilizing Generative AI to analyze individual student progress, cognitive styles, and knowledge gaps, the platform dynamically generates custom-tailored curriculum modules, interactive quizzes, and real-time corrective feedback. This initiative aims to bridge educational divides by providing high-quality, adaptive learning tools that scale to meet the needs of diverse learners globally.",
       tech: ["React", "Node.js", "Tailwind CSS"],
       image: CONFIG.projectImages.bletofu
     },
     {
       title: "Digital Solutions for SMBs",
-      desc: "A suite of automated tools helping small businesses transition to digital-first operations with minimal friction.",
+      desc: "Developed a comprehensive suite of intelligent automation tools specifically engineered to empower small and medium-sized businesses. These solutions include custom-trained customer support agents, automated document processing pipelines, and intelligent lead qualification systems. By lowering the barrier to entry for advanced technology, this project has enabled traditional businesses to achieve significant operational efficiency gains and successfully transition into a digital-first operational model.",
       tech: ["Next.js", "Firebase", "Stripe"],
       image: CONFIG.projectImages.smb
     }
@@ -362,9 +363,10 @@ const Projects = () => {
               key={project.title}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 30 }}
+              whileHover={{ y: -10, scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group glass rounded-3xl overflow-hidden"
+              className="group glass rounded-3xl overflow-hidden transition-colors duration-300"
             >
               <div className="aspect-video overflow-hidden relative">
                 <img 
@@ -382,10 +384,7 @@ const Projects = () => {
                   ))}
                 </div>
                 <h4 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h4>
-                <p className="text-white/50 text-sm mb-6 leading-relaxed">{project.desc}</p>
-                <button className="flex items-center gap-2 text-sm font-bold text-accent group/btn">
-                  Learn More <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                <p className="text-white/50 text-sm leading-relaxed">{project.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -461,7 +460,7 @@ const Skills = () => {
     { title: "AI Evaluation", icon: <Brain />, desc: "Expert assessment of LLM outputs for accuracy, safety, and alignment." },
     { title: "HITL Review", icon: <User />, desc: "Human-in-the-loop workflows to refine and ground generative AI systems." },
     { title: "Prompt Engineering", icon: <MessageSquare />, desc: "Crafting advanced prompts to maximize model utility and performance." },
-    { title: "Product Marketing", icon: <Rocket />, desc: "Strategic positioning and GTM planning for technical products." },
+    { title: "AI Strategy", icon: <Rocket />, desc: "Strategic implementation and optimization of AI solutions." },
     { title: "Digital Development", icon: <Code />, desc: "Building scalable web applications and internal tools." },
     { title: "Data Strategy", icon: <BarChart3 />, desc: "Leveraging analytics to drive product decisions and growth." },
   ];
@@ -509,10 +508,10 @@ const Timeline = () => {
       image: "https://picsum.photos/seed/logo1/100/100"
     },
     {
-      role: "Product Marketing Manager",
+      role: "AI Product Strategist",
       company: "TechScale Solutions",
       period: "2021 - 2023",
-      desc: "Developed and executed go-to-market strategies for B2B SaaS products, increasing lead generation by 65%.",
+      desc: "Spearheaded AI integration strategies for B2B SaaS products, enhancing user engagement through intelligent automation.",
       image: "https://picsum.photos/seed/logo2/100/100"
     },
     {
@@ -612,8 +611,8 @@ const Insights = () => {
       image: CONFIG.blogImages[0]
     },
     {
-      title: "Product Marketing for AI Startups",
-      excerpt: "How to communicate complex technical value to non-technical buyers.",
+      title: "Scaling AI Evaluation Workflows",
+      excerpt: "Best practices for maintaining quality as your AI systems grow in complexity.",
       date: "Feb 28, 2026",
       image: CONFIG.blogImages[1]
     },
@@ -683,7 +682,7 @@ const Contact = () => {
             <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Get In Touch</h2>
             <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Let's build the <span className="text-gradient">future</span> together.</h3>
             <p className="text-base md:text-lg text-white/50 mb-12 leading-relaxed">
-              Whether you're looking for an AI evaluation partner, a product strategist, or a digital builder, I'm always open to discussing new projects and opportunities.
+              Whether you're looking for an AI evaluation partner, an AI strategist, or a digital builder, I'm always open to discussing new projects and opportunities.
             </p>
             
             <div className="space-y-6">
@@ -693,7 +692,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] text-white/30 font-bold uppercase">Email</p>
-                  <p className="font-medium text-sm md:text-base">contact@moshood.ai</p>
+                  <a href="mailto:ogundiranadeniyi1@gmail.com" className="font-medium text-sm md:text-base hover:text-primary transition-colors">ogundiranadeniyi1@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -702,7 +701,16 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] text-white/30 font-bold uppercase">LinkedIn</p>
-                  <p className="font-medium text-sm md:text-base">linkedin.com/in/moshood</p>
+                  <a href="https://www.linkedin.com/in/moshood-ogundiran-79a19b2a4/" target="_blank" rel="noopener noreferrer" className="font-medium text-sm md:text-base hover:text-primary transition-colors">Moshood Ogundiran</a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl glass flex items-center justify-center text-primary">
+                  <MessageCircle size={20} />
+                </div>
+                <div>
+                  <p className="text-[10px] text-white/30 font-bold uppercase">WhatsApp</p>
+                  <a href="https://wa.me/2347078324988" target="_blank" rel="noopener noreferrer" className="font-medium text-sm md:text-base hover:text-primary transition-colors">+234 707 832 4988</a>
                 </div>
               </div>
             </div>
@@ -770,11 +778,14 @@ const Footer = () => {
           <a href="#" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
             <Github size={18} />
           </a>
-          <a href="#" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
+          <a href="https://www.linkedin.com/in/moshood-ogundiran-79a19b2a4/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
             <Linkedin size={18} />
           </a>
-          <a href="#" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
+          <a href="mailto:ogundiranadeniyi1@gmail.com" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
             <Mail size={18} />
+          </a>
+          <a href="https://wa.me/2347078324988" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-full flex items-center justify-center text-white/60 hover:text-primary transition-all">
+            <MessageCircle size={18} />
           </a>
         </div>
       </div>
