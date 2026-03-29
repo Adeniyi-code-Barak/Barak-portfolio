@@ -32,41 +32,87 @@ import ProfileImage from './assets/images/profile.png';
 // --- Configuration & Image Management ---
 /**
  * HOW TO CHANGE IMAGES:
- * 1. To use a URL: Replace the strings in the CONFIG object below with your image URLs.
- * 2. To use your own files: 
- *    - Upload your images to the 'src/assets/images' folder.
- *    - Import them at the top of this file: import MyImage from './assets/images/my-photo.jpg';
- *    - Reference them in the CONFIG object: profileImage: MyImage
+ * 1. To use a URL or local file: 
+ *    - Set 'useAI: false' for that image in the CONFIG object.
+ *    - Update the 'src' property with your URL or imported local file.
+ * 2. To use AI Generation:
+ *    - Set 'useAI: true' for that image.
+ *    - (Optional) Update the 'prompt' to change what the AI generates.
  */
 const CONFIG = {
-  profileImage: ProfileImage, // Using imported image for better deployment reliability
-  workspaceImage: "https://picsum.photos/seed/workspace/800/1000",
-  projectImages: {
-    eval: "https://picsum.photos/seed/ai-evaluation-dashboard/800/600",
-    bletofu: "https://picsum.photos/seed/educational-platform/800/600",
-    smb: "https://picsum.photos/seed/business-automation/800/600",
+  profile: {
+    src: ProfileImage,
+    alt: "Moshood Ogundiran Profile",
+    useAI: false
   },
-  blogImages: [
-    "https://picsum.photos/seed/blog1/800/500",
-    "https://picsum.photos/seed/blog2/800/500",
-    "https://picsum.photos/seed/blog3/800/500",
-  ],
-  testimonialImages: [
-    "https://picsum.photos/seed/person1/100/100",
-    "https://picsum.photos/seed/person2/100/100",
-  ],
-  contactThumbnail: ProfileImage,
-  skillImages: {
-    evaluation: "https://picsum.photos/seed/ai-evaluation/800/600",
-    hitl: "https://picsum.photos/seed/human-in-the-loop/800/600",
-    prompt: "https://picsum.photos/seed/prompt-engineering/800/600",
-    strategy: "https://picsum.photos/seed/ai-strategy/800/600",
-    development: "https://picsum.photos/seed/digital-development/800/600",
-    data: "https://picsum.photos/seed/data-strategy/800/600",
+  workspace: {
+    src: "https://picsum.photos/seed/workspace/800/1000",
+    alt: "Moshood's Workspace",
+    useAI: false
   },
+  projects: {
+    eval: {
+      src: "https://picsum.photos/seed/ai-evaluation-dashboard/800/600",
+      alt: "AI Output Evaluation Framework",
+      useAI: true,
+      prompt: "Create a detailed modern illustration of a Large Language Model evaluation framework pipeline. The scene shows: An AI language model generating responses, A structured evaluation pipeline analyzing the outputs, Automated scoring modules labeled BLEU, ROUGE, and BERTScore, A human-in-the-loop review interface where evaluators approve, flag, or correct outputs, Data dashboards displaying metrics like logical consistency, factual grounding, and safety alignment. Include visual elements like data flows, modular AI components, evaluation nodes, charts, and feedback loops improving the system. Style: modern machine learning architecture diagram mixed with SaaS dashboard design, clean and professional, minimalistic tech illustration, purple and yellow accent colors, white background, futuristic but realistic AI engineering aesthetic."
+    },
+    bletofu: {
+      src: "https://picsum.photos/seed/educational-platform/800/600",
+      alt: "BLETOFU Learning Platform",
+      useAI: true,
+      prompt: "Create a modern illustration of an AI-powered personalized learning platform. The scene shows a student interacting with a digital learning dashboard while an artificial intelligence system analyzes their learning progress. Visualize the AI generating personalized curriculum modules, quizzes, and feedback tailored to the student. Include elements like: AI brain or neural network connected to learning modules, Progress charts and skill maps, Adaptive learning paths branching into different subjects, Interactive quizzes and feedback panels, Data flows representing analysis of knowledge gaps. Style: modern edtech SaaS illustration, clean UI dashboard aesthetic, minimalistic design, futuristic but friendly, purple and yellow accent colors, white background, professional and scalable technology vibe. Use a wide 16:9 hero illustration style suitable for a modern AI product portfolio."
+    },
+    smb: {
+      src: "https://picsum.photos/seed/business-automation/800/600",
+      alt: "Digital Solutions for SMBs",
+      useAI: true,
+      prompt: "Create a modern 16:9 hero illustration of an AI-powered automation platform designed for small and medium-sized businesses. The scene features a sleek digital dashboard used by business owners to manage operations with intelligent automation tools. The interface displays multiple modules connected by flowing data lines. Include visual elements such as: an AI customer support chatbot assisting customers through a chat interface, automated document processing pipelines scanning and analyzing business documents, an intelligent lead qualification system categorizing potential customers (high, medium, low priority), integrated payment processing representing online payments (Stripe-like checkout module), business analytics dashboards with graphs, KPIs, and workflow automation panels. Show a clear system architecture where data flows between web applications, cloud databases, APIs, and automation engines. Use glowing connectors and modular blocks to represent the AI workflow. Style: modern SaaS product illustration, startup-style UI, clean minimalistic design, futuristic automation platform aesthetic, soft gradients, professional tech environment. Color palette: purple and yellow accent colors on a clean white background. Make the composition feel like a polished hero illustration for a technology startup portfolio website."
+    }
+  },
+  skills: {
+    evaluation: { src: "https://picsum.photos/seed/ai-evaluation/800/600", alt: "AI Evaluation", useAI: false },
+    hitl: { src: "https://picsum.photos/seed/human-in-the-loop/800/600", alt: "HITL Review", useAI: false },
+    prompt: { src: "https://picsum.photos/seed/prompt-engineering/800/600", alt: "Prompt Engineering", useAI: false },
+    strategy: { src: "https://picsum.photos/seed/ai-strategy/800/600", alt: "AI Strategy", useAI: false },
+    development: { src: "https://picsum.photos/seed/digital-development/800/600", alt: "Digital Development", useAI: false },
+    data: { src: "https://picsum.photos/seed/data-strategy/800/600", alt: "Data Strategy", useAI: false },
+  },
+  caseStudy: {
+    src: "https://picsum.photos/seed/case-study/1200/800",
+    alt: "Yohanna Platform Case Study",
+    useAI: true,
+    prompt: "Create a modern tech illustration showing a Human-in-the-Loop AI evaluation workflow. The scene shows an AI system generating responses on a dashboard while a human reviewer evaluates the outputs. Some responses are marked approved, others flagged for correction. Include visual elements like data flows, AI nodes, review checkmarks, and feedback loops improving the system. Style: clean SaaS product illustration, purple and yellow accent colors, modern UI dashboard look, minimalistic, futuristic but professional."
+  },
+  experience: [
+    { src: "https://picsum.photos/seed/logo1/100/100", alt: "Generative AI Lab", useAI: false },
+    { src: "https://picsum.photos/seed/logo2/100/100", alt: "TechScale Solutions", useAI: false },
+    { src: "https://picsum.photos/seed/logo3/100/100", alt: "Independent", useAI: false },
+  ],
+  blog: [
+    { src: "https://picsum.photos/seed/blog1/800/500", alt: "Blog Post 1", useAI: false },
+    { src: "https://picsum.photos/seed/blog2/800/500", alt: "Blog Post 2", useAI: false },
+    { src: "https://picsum.photos/seed/blog3/800/500", alt: "Blog Post 3", useAI: false },
+  ],
+  testimonials: [
+    { src: "https://picsum.photos/seed/person1/100/100", alt: "Sarah Chen", useAI: false },
+    { src: "https://picsum.photos/seed/person2/100/100", alt: "David Miller", useAI: false },
+  ],
+  contactThumbnail: {
+    src: ProfileImage,
+    alt: "Moshood Ogundiran",
+    useAI: false
+  }
 };
 
 // --- Components ---
+
+interface ImageConfig {
+  src: string;
+  alt: string;
+  useAI: boolean;
+  prompt?: string;
+}
 
 const AIVisual = ({ prompt, fallbackImage, alt }: { prompt: string, fallbackImage?: string, alt: string }) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -128,7 +174,6 @@ const AIVisual = ({ prompt, fallbackImage, alt }: { prompt: string, fallbackImag
             src={fallbackImage} 
             alt={alt} 
             className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale"
-            referrerPolicy="no-referrer"
           />
         )}
         <div className="relative z-10 flex flex-col items-center justify-center">
@@ -164,6 +209,25 @@ const AIVisual = ({ prompt, fallbackImage, alt }: { prompt: string, fallbackImag
         <Rocket size={12} />
       </button>
     </div>
+  );
+};
+
+const SmartImage = ({ config, className = "" }: { config: ImageConfig, className?: string }) => {
+  if (config.useAI && config.prompt) {
+    return (
+      <div className={className}>
+        <AIVisual prompt={config.prompt} fallbackImage={config.src} alt={config.alt} />
+      </div>
+    );
+  }
+
+  return (
+    <img 
+      src={config.src} 
+      alt={config.alt} 
+      className={`w-full h-full object-cover ${className}`}
+      referrerPolicy="no-referrer"
+    />
   );
 };
 
@@ -315,10 +379,9 @@ const Hero = () => {
             {/* Image Frame */}
             <div className="w-full h-full rounded-3xl overflow-hidden glass p-2 rotate-3 hover:rotate-0 transition-transform duration-500">
               <div className="w-full h-full rounded-2xl overflow-hidden bg-white/5 relative group">
-                <img 
-                  src={CONFIG.profileImage} 
-                  alt="Moshood Ogundiran" 
-                  className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
+                <SmartImage 
+                  config={CONFIG.profile} 
+                  className="hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
@@ -413,12 +476,7 @@ const About = () => {
           className="relative order-2 lg:order-1"
         >
           <div className="aspect-4/5 rounded-3xl overflow-hidden glass p-3 relative z-10">
-            <img 
-              src={CONFIG.workspaceImage} 
-              alt="Workspace" 
-              className="w-full h-full object-cover rounded-2xl"
-              referrerPolicy="no-referrer"
-            />
+            <SmartImage config={CONFIG.workspace} className="rounded-2xl" />
           </div>
           <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/30 rounded-full blur-3xl -z-10" />
         </motion.div>
@@ -433,22 +491,19 @@ const Projects = () => {
       title: "AI Output Evaluation Framework",
       desc: "Architected and deployed a sophisticated, multi-dimensional evaluation system for Large Language Models (LLMs). This framework integrates automated scoring metrics (like BLEU, ROUGE, and BERTScore) with custom human-in-the-loop (HITL) review pipelines to rigorously benchmark model performance. It focuses on critical dimensions such as logical consistency, factual grounding, and safety alignment, providing actionable insights that have directly led to a measurable reduction in model hallucinations and improved reliability for production-grade AI applications.",
       tech: ["Python", "OpenAI API", "Data Analysis"],
-      image: CONFIG.projectImages.eval,
-      aiPrompt: "Create a detailed modern illustration of a Large Language Model evaluation framework pipeline. The scene shows: An AI language model generating responses, A structured evaluation pipeline analyzing the outputs, Automated scoring modules labeled BLEU, ROUGE, and BERTScore, A human-in-the-loop review interface where evaluators approve, flag, or correct outputs, Data dashboards displaying metrics like logical consistency, factual grounding, and safety alignment. Include visual elements like data flows, modular AI components, evaluation nodes, charts, and feedback loops improving the system. Style: modern machine learning architecture diagram mixed with SaaS dashboard design, clean and professional, minimalistic tech illustration, purple and yellow accent colors, white background, futuristic but realistic AI engineering aesthetic."
+      image: CONFIG.projects.eval
     },
     {
       title: "BLETOFU Learning Platform",
       desc: "Designed and built an AI-native educational ecosystem that transforms the traditional learning experience through deep personalization. By utilizing Generative AI to analyze individual student progress, cognitive styles, and knowledge gaps, the platform dynamically generates custom-tailored curriculum modules, interactive quizzes, and real-time corrective feedback. This initiative aims to bridge educational divides by providing high-quality, adaptive learning tools that scale to meet the needs of diverse learners globally.",
       tech: ["React", "Node.js", "Tailwind CSS"],
-      image: CONFIG.projectImages.bletofu,
-      aiPrompt: "Create a modern illustration of an AI-powered personalized learning platform. The scene shows a student interacting with a digital learning dashboard while an artificial intelligence system analyzes their learning progress. Visualize the AI generating personalized curriculum modules, quizzes, and feedback tailored to the student. Include elements like: AI brain or neural network connected to learning modules, Progress charts and skill maps, Adaptive learning paths branching into different subjects, Interactive quizzes and feedback panels, Data flows representing analysis of knowledge gaps. Style: modern edtech SaaS illustration, clean UI dashboard aesthetic, minimalistic design, futuristic but friendly, purple and yellow accent colors, white background, professional and scalable technology vibe. Use a wide 16:9 hero illustration style suitable for a modern AI product portfolio."
+      image: CONFIG.projects.bletofu
     },
     {
       title: "Digital Solutions for SMBs",
       desc: "Developed a comprehensive suite of intelligent automation tools specifically engineered to empower small and medium-sized businesses. These solutions include custom-trained customer support agents, automated document processing pipelines, and intelligent lead qualification systems. By lowering the barrier to entry for advanced technology, this project has enabled traditional businesses to achieve significant operational efficiency gains and successfully transition into a digital-first operational model.",
       tech: ["Next.js", "Firebase", "Stripe"],
-      image: CONFIG.projectImages.smb,
-      aiPrompt: "Create a modern 16:9 hero illustration of an AI-powered automation platform designed for small and medium-sized businesses. The scene features a sleek digital dashboard used by business owners to manage operations with intelligent automation tools. The interface displays multiple modules connected by flowing data lines. Include visual elements such as: an AI customer support chatbot assisting customers through a chat interface, automated document processing pipelines scanning and analyzing business documents, an intelligent lead qualification system categorizing potential customers (high, medium, low priority), integrated payment processing representing online payments (Stripe-like checkout module), business analytics dashboards with graphs, KPIs, and workflow automation panels. Show a clear system architecture where data flows between web applications, cloud databases, APIs, and automation engines. Use glowing connectors and modular blocks to represent the AI workflow. Style: modern SaaS product illustration, startup-style UI, clean minimalistic design, futuristic automation platform aesthetic, soft gradients, professional tech environment. Color palette: purple and yellow accent colors on a clean white background. Make the composition feel like a polished hero illustration for a technology startup portfolio website."
+      image: CONFIG.projects.smb
     }
   ];
 
@@ -479,19 +534,7 @@ const Projects = () => {
               className="group glass rounded-3xl overflow-hidden transition-colors duration-300"
             >
               <div className="aspect-video overflow-hidden relative">
-                {project.aiPrompt ? (
-                  <AIVisual prompt={project.aiPrompt} fallbackImage={project.image} alt={project.title} />
-                ) : (
-                  <>
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-background to-transparent opacity-60" />
-                  </>
-                )}
+                <SmartImage config={project.image} />
               </div>
               <div className="p-8">
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -517,7 +560,7 @@ const CaseStudies = () => {
       problem: "The Yohanna AI product required rigorous evaluation to ensure responses were aligned with intended use cases and free from misleading or low-quality outputs. As the platform scaled, maintaining consistency, safety, and contextual accuracy across generated responses became a key challenge.",
       solution: "Led structured human-in-the-loop evaluation processes to assess AI outputs against quality, safety, and relevance standards. Worked closely with the AI team to review model responses, flag inconsistencies, and provide detailed feedback that helped refine prompt structures and improve response alignment with the product’s objectives.",
       impact: "Improved overall response reliability and helped strengthen the product’s quality assurance framework, enabling the team to iterate faster and deploy updates with greater confidence in AI output accuracy and user experience.",
-      aiPrompt: "Create a modern tech illustration showing a Human-in-the-Loop AI evaluation workflow. The scene shows an AI system generating responses on a dashboard while a human reviewer evaluates the outputs. Some responses are marked approved, others flagged for correction. Include visual elements like data flows, AI nodes, review checkmarks, and feedback loops improving the system. Style: clean SaaS product illustration, purple and yellow accent colors, modern UI dashboard look, minimalistic, futuristic but professional."
+      image: CONFIG.caseStudy
     }
   ];
 
@@ -534,7 +577,7 @@ const CaseStudies = () => {
               viewport={{ once: true }}
               className="rounded-3xl overflow-hidden glass p-2"
             >
-              <AIVisual prompt={cs.aiPrompt} alt={cs.title} />
+              <SmartImage config={cs.image} />
             </motion.div>
             
             <motion.div
@@ -571,42 +614,42 @@ const Skills = () => {
     { 
       title: "AI Evaluation", 
       icon: <Brain />, 
-      image: CONFIG.skillImages.evaluation,
+      image: CONFIG.skills.evaluation,
       desc: "Comprehensive assessment of Large Language Model outputs using a blend of automated benchmarks and qualitative analysis. I specialize in identifying subtle hallucinations, measuring reasoning consistency, and ensuring that AI systems adhere to strict safety and ethical guidelines before deployment. My approach involves creating custom evaluation datasets and implementing rigorous testing protocols to validate model reliability across diverse edge cases.",
       focus: ["Hallucination Detection", "Safety Benchmarking", "Reasoning Analysis"]
     },
     { 
       title: "HITL Review", 
       icon: <User />, 
-      image: CONFIG.skillImages.hitl,
+      image: CONFIG.skills.hitl,
       desc: "Designing and managing Human-in-the-loop workflows to provide high-quality ground truth data. I bridge the gap between raw model outputs and human expectations, utilizing expert feedback loops to iteratively refine model behavior and improve overall system reliability. This includes managing annotation teams, defining clear labeling guidelines, and integrating human feedback directly into the model fine-tuning process.",
       focus: ["Annotation Management", "Feedback Loops", "Ground Truth Data"]
     },
     { 
       title: "Prompt Engineering", 
       icon: <MessageSquare />, 
-      image: CONFIG.skillImages.prompt,
+      image: CONFIG.skills.prompt,
       desc: "Advanced prompt design using techniques like chain-of-thought, few-shot prompting, and structured output enforcement. I craft precise instructions that maximize model utility, reduce latency, and ensure consistent performance across diverse use cases and model architectures. I also implement dynamic prompt templates that adapt to user context, ensuring highly relevant and accurate model responses.",
       focus: ["Chain-of-Thought", "Few-Shot Learning", "Structured Outputs"]
     },
     { 
       title: "AI Strategy", 
       icon: <Rocket />, 
-      image: CONFIG.skillImages.strategy,
+      image: CONFIG.skills.strategy,
       desc: "Strategic advisory on the implementation and optimization of AI solutions within existing business processes. I help organizations identify high-impact AI opportunities, navigate technical trade-offs, and develop long-term roadmaps for sustainable AI integration. My strategy work focuses on maximizing ROI while minimizing risks associated with AI deployment, including ethical considerations and technical scalability.",
       focus: ["Implementation Roadmaps", "ROI Analysis", "Ethical AI"]
     },
     { 
       title: "Digital Development", 
       icon: <Code />, 
-      image: CONFIG.skillImages.development,
+      image: CONFIG.skills.development,
       desc: "Full-stack development of scalable web applications and internal AI tools. I build robust digital products that seamlessly integrate AI capabilities, focusing on performance, user experience, and maintainable architecture using modern frameworks like React and Next.js. I specialize in creating intuitive interfaces for complex AI systems, making advanced technology accessible to non-technical users.",
       focus: ["Full-Stack Apps", "AI Tooling", "User Experience"]
     },
     { 
       title: "Data Strategy", 
       icon: <BarChart3 />, 
-      image: CONFIG.skillImages.data,
+      image: CONFIG.skills.data,
       desc: "Leveraging data analytics and visualization to drive informed product decisions. I design data pipelines and dashboards that provide clear insights into AI system performance, user behavior, and business growth, ensuring that every move is backed by rigorous data. My work ensures that data is not just collected, but transformed into actionable intelligence that guides the entire product lifecycle.",
       focus: ["Performance Analytics", "Data Pipelines", "Actionable Insights"]
     },
@@ -672,21 +715,21 @@ const Timeline = () => {
       company: "Generative AI Lab",
       period: "2023 - Present",
       desc: "Leading evaluation efforts for large-scale language models, focusing on reasoning capabilities and safety guardrails.",
-      image: "https://picsum.photos/seed/logo1/100/100"
+      image: CONFIG.experience[0]
     },
     {
       role: "AI Product Strategist",
       company: "TechScale Solutions",
       period: "2021 - 2023",
       desc: "Spearheaded AI integration strategies for B2B SaaS products, enhancing user engagement through intelligent automation.",
-      image: "https://picsum.photos/seed/logo2/100/100"
+      image: CONFIG.experience[1]
     },
     {
       role: "Digital Product Builder",
       company: "Freelance / Independent",
       period: "2019 - 2021",
       desc: "Designed and developed custom digital solutions for startups, from MVP to full-scale production.",
-      image: "https://picsum.photos/seed/logo3/100/100"
+      image: CONFIG.experience[2]
     }
   ];
 
@@ -706,10 +749,15 @@ const Timeline = () => {
               className="mb-12 last:mb-0 pl-10 relative"
             >
               <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                <div>
-                  <h4 className="text-xl font-bold">{exp.role}</h4>
-                  <p className="text-primary font-medium">{exp.company}</p>
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl overflow-hidden glass p-1 flex-shrink-0">
+                    <SmartImage config={exp.image} className="rounded-lg" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold">{exp.role}</h4>
+                    <p className="text-primary font-medium">{exp.company}</p>
+                  </div>
                 </div>
                 <span className="text-xs font-bold text-white/30 bg-white/5 px-3 py-1 rounded-full">{exp.period}</span>
               </div>
@@ -728,13 +776,13 @@ const Testimonials = () => {
       name: "Sarah Chen",
       role: "CTO @ AI Nexus",
       text: "Moshood's evaluation framework was a game-changer for our model alignment. His attention to detail and strategic insights are unmatched.",
-      image: CONFIG.testimonialImages[0]
+      image: CONFIG.testimonials[0]
     },
     {
       name: "David Miller",
       role: "Founder @ ScaleUp",
       text: "Working with Moshood on our product strategy helped us find the perfect market fit. He understands both the tech and the business.",
-      image: CONFIG.testimonialImages[1]
+      image: CONFIG.testimonials[1]
     }
   ];
 
@@ -755,7 +803,9 @@ const Testimonials = () => {
               <Quote className="absolute top-6 right-8 text-primary/20" size={40} />
               <p className="text-lg text-white/70 italic mb-8 leading-relaxed relative z-10">"{t.text}"</p>
               <div className="flex items-center gap-4">
-                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover" referrerPolicy="no-referrer" />
+                <div className="w-12 h-12 rounded-full overflow-hidden">
+                  <SmartImage config={t.image} />
+                </div>
                 <div>
                   <h4 className="font-bold">{t.name}</h4>
                   <p className="text-xs text-white/40">{t.role}</p>
@@ -775,19 +825,19 @@ const Insights = () => {
       title: "The Future of AI Evaluation",
       excerpt: "Why human-in-the-loop remains critical as models become more autonomous.",
       date: "Mar 15, 2026",
-      image: CONFIG.blogImages[0]
+      image: CONFIG.blog[0]
     },
     {
       title: "Scaling AI Evaluation Workflows",
       excerpt: "Best practices for maintaining quality as your AI systems grow in complexity.",
       date: "Feb 28, 2026",
-      image: CONFIG.blogImages[1]
+      image: CONFIG.blog[1]
     },
     {
       title: "Building Scalable Digital Products",
       excerpt: "Best practices for moving from MVP to production-ready systems.",
       date: "Jan 12, 2026",
-      image: CONFIG.blogImages[2]
+      image: CONFIG.blog[2]
     }
   ];
 
@@ -811,11 +861,9 @@ const Insights = () => {
               className="group cursor-pointer"
             >
               <div className="aspect-video rounded-2xl overflow-hidden mb-6 glass p-1">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
+                <SmartImage 
+                  config={post.image} 
+                  className="rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="flex items-center gap-2 text-white/30 text-xs font-bold uppercase mb-3">
@@ -883,7 +931,9 @@ const Contact = () => {
             </div>
 
             <div className="mt-12 flex items-center gap-4 p-6 glass rounded-3xl max-w-sm">
-              <img src={CONFIG.contactThumbnail} alt="Moshood" className="w-16 h-16 rounded-2xl object-cover" />
+              <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0">
+                <SmartImage config={CONFIG.contactThumbnail} />
+              </div>
               <div>
                 <h4 className="font-bold">Moshood Ogundiran</h4>
                 <p className="text-xs text-white/40">Ready to collaborate</p>
